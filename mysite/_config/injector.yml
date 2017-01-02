@@ -1,39 +1,39 @@
 ---
 name: 'addonsinjector'
 ---
-Injector:
-  AddonBuilder:
+SilverStripe\Core\Injector\Injector:
+  SilverStripe\Addons\Services\AddonBuilder:
     constructor:
-      - %$PackagistService
-  AddonUpdater:
+      - %$SilverStripe\Addons\Services\PackagistService
+  SilverStripe\Addons\Services\AddonUpdater:
     constructor:
-      - %$PackagistService
-      - %$ElasticaService
-      - %$ResqueService
+      - %$SilverStripe\Addons\Services\PackagistService
+      - %$SilverStripe\Addons\Services\ElasticaService
+      - %$SilverStripe\Addons\Services\ResqueService
       - %$Composer\Package\Version\VersionParser
   RequestProcessor:
     properties:
       filters:
-        - %$SiteErrorPageFilter
-  SilverStripeVersionUpdater:
+        - %$SilverStripe\Addons\Controllers\SiteErrorPageFilter
+  SilverStripe\Addons\Services\SilverStripeVersionUpdater:
     constructor:
-      - %$PackagistService
-  UpdateAddonsTask:
+      - %$SilverStripe\Addons\Services\PackagistService
+  SilverStripe\Addons\Tasks\UpdateAddonsTask:
     constructor:
-      - %$AddonUpdater
-  UpdateSilverStripeVersionsTask:
+      - %$SilverStripe\Addons\Services\AddonUpdater
+  SilverStripe\Addons\Tasks\UpdateSilverStripeVersionsTask:
     constructor:
-      - %$SilverStripeVersionUpdater
-  BuildAddonsTask:
+      - %$SilverStripe\Addons\Services\SilverStripeVersionUpdater
+  SilverStripe\Addons\Tasks\BuildAddonsTask:
     constructor:
-      - %$AddonBuilder
+      - %$SilverStripe\Addons\Services\AddonBuilder
 ---
 Only:
   environment: 'live'
 After:
   - '#elastica'
 ---
-Injector:
+SilverStripe\Core\Injector\Injector:
   ElasticaService:
     class: SilverStripe\Elastica\ElasticaService
     constructor:
@@ -45,7 +45,7 @@ Except:
 After:
   - '#elastica'
 ---
-Injector:
+SilverStripe\Core\Injector\Injector:
   ElasticaService:
     class: SilverStripe\Elastica\ElasticaService
     constructor:

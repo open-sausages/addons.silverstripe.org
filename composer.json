@@ -13,9 +13,9 @@
     "dflydev/markdown": "1.0.*@stable",
     "ezyang/htmlpurifier": "4.5.*@stable",
     "guzzle/guzzle": "3.2.0",
-    "silverstripe/framework": "3.1.*@stable",
+    "silverstripe/framework": "^4",
     "silverstripe/multivaluefield": "*",
-    "silverstripe/toolbar": "^4.0",
+    "silverstripe/toolbar": "dev-feature/ss4-upgrade as 4.0.12",
     "knplabs/packagist-api": "1.*@stable",
     "stojg/silverstripe-resque": "*",
     "silverstripe-australia/elastica": "dev-master",
@@ -28,8 +28,13 @@
   },
   "require-dev": {
     "phpunit/phpunit": "^4.8",
-    "silverstripe/sqlite3": "*"
+    "silverstripe/sqlite3": "^2.1"
   },
+  "autoload": {
+    "psr-4": {
+      "SilverStripe\\Addons\\": "mysite/src/"
+    }
+  },  
   "minimum-stability": "dev",
   "prefer-stable": true
 }

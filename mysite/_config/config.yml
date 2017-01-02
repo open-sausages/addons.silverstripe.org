@@ -1,9 +1,9 @@
 ---
 After: 'toolbar/*'
 ---
-SSViewer:
+SilverStripe\View\SSViewer:
   theme: addons
-GlobalNavTemplateProvider:
+SilverStripe\Toolbar\TemplateProvider:
   connection_timeout: 2000
   transfer_timeout: 6000
 ---

@@ -1,2 +1,2 @@
-AdminRootController:
+SilverStripe\Admin\AdminRootController:
   default_panel: AddonsAdmin

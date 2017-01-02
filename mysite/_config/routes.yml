@@ -1,11 +1,11 @@
 ---
 After: framework
 ---
-Director:
+SilverStripe\Control\Director:
   rules:
-    "": HomeController
-    "add-ons": AddonsController
-    "vendors": VendorsController
-    "authors": AuthorsController
-    "tags": TagsController
-    "submit": SubmitAddonController
+    "": SilverStripe\Addons\Controllers\HomeController
+    "add-ons": SilverStripe\Addons\Controllers\AddonsController
+    "vendors": SilverStripe\Addons\Controllers\VendorsController
+    "authors": SilverStripe\Addons\Controllers\AuthorsController
+    "tags": SilverStripe\Addons\Controllers\TagsController
+    "submit": SilverStripe\Addons\Controllers\SubmitAddonController
