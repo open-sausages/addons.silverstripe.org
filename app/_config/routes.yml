@@ -1,0 +1,14 @@
+---
+After: framework
+---
+SilverStripe\Control\Director:
+  rules:
+    '': HomeController
+    add-ons: AddonsController
+    vendors: VendorsController
+    authors: AuthorsController
+    tags: TagsController
+    submit: SubmitAddonController
+    addonSort: AjaxController
+    'api/rating': RatingApiController
+    'api/supported-addons': SupportedAddonsApiController

@@ -19,4 +19,6 @@ display_logic/
 error.log
 dump.rdb
 /gridfieldextensions
-/raygun
+/raygun/
+/resources/
+/silverstripe-elastica/
