@@ -28,6 +28,8 @@ class Addon extends DataObject
         'RatingDetails'     => 'Text',
         // Commercially supported by SilverStripe Ltd.
         'Supported'         => 'Boolean',
+        // Allows unique tracking over time, even with renamed repos
+        'GithubRepoId'      => 'Varchar(255)',
     );
 
     public static $has_one = array(

@@ -94,6 +94,7 @@ class AddonBuilder
             }
 
             $this->buildReadme($addon, $path);
+            $this->buildRepoInfo($addon);
             $this->buildScreenshots($addon, $package, $path);
             $this->rateModule($addon, $path);
         }
@@ -155,6 +156,29 @@ class AddonBuilder
                 return;
             }
         }
+    }
+
+    /**
+     * Get additional repository info
+     *
+     * @param Addon $addon
+     * @return void
+     */
+    protected function buildRepoInfo(Addon $addon)
+    {
+        // Only supports Github repo info for now
+        $context = $this->getGithubContext($addon);
+        if (!$context) {
+            return false;
+        }
+
+        $service = GitHubRepoService::create();
+        $info = $service->get($context);
+        if (!$info) {
+            return false;
+        }
+
+        $addon->GithubRepoId = $info['id'];
     }
 
     /**
